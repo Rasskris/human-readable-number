@@ -3,42 +3,10 @@ module.exports = function toReadable (number) {
     return 'zero';
   }
 
-  const dg = {
-    0: '',
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-  };
+  const dg = ['','one','two','three','four','five','six','seven','eight','nine', 
+  'ten','eleven','twelve','thirteen', 'fourteen','fifteen','sixteen', 'seventeen','eighteen','nineteen'];
 
-  const tw = {
-    10: 'ten',
-    11: 'eleven',
-    12: 'twelve',
-    13: 'thirteen', 
-    14: 'fourteen',
-    15: 'fifteen',
-    16: 'sixteen', 
-    17: 'seventeen',
-    18: 'eighteen',
-    19: 'nineteen',
-  };
-
-  const dz = {
-    2: 'twenty',
-    3: 'thirty',
-    4: 'forty',
-    5: 'fifty', 
-    6: 'sixty',
-    7: 'seventy',
-    8: 'eighty',
-    9: 'ninety', 
-  };
+  const dz = ['', '', 'twenty', 'thirty', 'forty', 'fifty',  'sixty', 'seventy', 'eighty', 'ninety'];
 
   let result;
 
@@ -48,7 +16,7 @@ module.exports = function toReadable (number) {
   }
   else if (number % 100 >= 10 && number % 100 <= 19) {
     const s = number.toString();
-    result = s.length < 3 ? tw[number] : `${dg[s[0]]} hundred ${tw[s.slice(-2)]}`;
+    result = s.length < 3 ? dg[number] : `${dg[s[0]]} hundred ${dg[s.slice(-2)]}`;
   }
   else if (number % 100 >= 20 && number % 100 < 100) {
     const s = number.toString();
